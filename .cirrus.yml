@@ -48,12 +48,12 @@ task:
     - mvn --version
     - xsltproc --version
     - xml --version
-  sevntu_script:
-    - cd ci
-    - .ci/validation.cmd sevntu
-  verify_without_checkstyle_script:
-    - cd ci
-    - .ci/validation.cmd verify_without_checkstyle
-  site_without_verify_script:
-    - cd ci
-    - .ci/validation.cmd site_without_verify
+#  sevntu_script:
+#    - cd ci
+#    - .ci/validation.cmd sevntu
+#  verify_without_checkstyle_script:
+#    - cd ci
+#    - .ci/validation.cmd verify_without_checkstyle
+#  site_without_verify_script:
+#    - cd ci
+#    - .ci/validation.cmd site_without_verify
