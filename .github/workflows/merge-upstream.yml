@@ -18,24 +18,8 @@ jobs:
         uses: actions/checkout@v2
         with:
           ref: master
-          # submodules: 'recursive'     ### may be needed in your situation
 
-      # Step 2: run this sync action - specify the upstream repo, upstream branch to sync with,
-      # and target sync branch
       - name: Pull (Fast-Forward) upstream changes
-        id: sync
-        uses: aormsby/Fork-Sync-With-Upstream-action@v2.1
-        with:
-          upstream_repository: checkstyle/checkstyle
-          upstream_branch: master
-          target_branch: master
-#          git_pull_args: --ff-only                 # optional arg use, defaults to simple 'pull'
+        run: git remote add upstream https://github.com/checkstyle/checkstyle \
+          && git pull --ff-only upstream master && git push
 
-      # Step 3: Display a message if 'sync' step had new commits (simple test)
-      - name: Check for new commits
-        if: steps.sync.outputs.has_new_commits
-        run: echo "There were new commits."
-
-      # Step 4: Print a helpful timestamp for your records (not required, just nice)
-      - name: Timestamp
-        run: date
